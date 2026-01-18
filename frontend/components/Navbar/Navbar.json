@@ -1,0 +1,120 @@
+{
+  "Home": [
+    {
+      "links": [{ "text": "Home", "href": "/" }]
+    },
+    {
+      "Shop": [
+        {
+          "links": [
+            { "text": "All Products", "href": "/shop/all" },
+            { "text": "New Arrivals", "href": "/shop/new" },
+            { "text": "Best Sellers", "href": "/shop/best-sellers" },
+            { "text": "Sale", "href": "/shop/sale" }
+          ]
+        }
+      ]
+    },
+    {
+      "Category": [
+        {
+          "links": [
+            { "text": "Electronics", "href": "/category/electronics" },
+            {
+              "text": "Mobiles & Accessories",
+              "href": "/category/electronics/mobiles"
+            },
+            {
+              "text": "Laptops & Computers",
+              "href": "/category/electronics/laptops"
+            },
+            {
+              "text": "Cameras & Photography",
+              "href": "/category/electronics/cameras"
+            },
+            {
+              "text": "Audio & Headphones",
+              "href": "/category/electronics/audio"
+            },
+            {
+              "text": "Smart Home & Gadgets",
+              "href": "/category/electronics/smart-home"
+            }
+          ]
+        },
+        {
+          "links": [
+            { "text": "Fashion", "href": "/category/fashion" },
+            { "text": "Men", "href": "/category/fashion/men" },
+            { "text": "Women", "href": "/category/fashion/women" },
+            { "text": "Kids", "href": "/category/fashion/kids" }
+          ]
+        },
+        {
+          "links": [
+            { "text": "Home & Living", "href": "/category/home-living" },
+            { "text": "Furniture", "href": "/category/home-living/furniture" },
+            { "text": "Home Decor", "href": "/category/home-living/decor" },
+            {
+              "text": "Kitchen & Dining",
+              "href": "/category/home-living/kitchen"
+            },
+            {
+              "text": "Bedding & Bath",
+              "href": "/category/home-living/bedding-bath"
+            }
+          ]
+        },
+        {
+          "links": [
+            { "text": "Beauty & Personal Care", "href": "/category/beauty" },
+            { "text": "Skincare", "href": "/category/beauty/skincare" },
+            { "text": "Haircare", "href": "/category/beauty/haircare" },
+            { "text": "Makeup", "href": "/category/beauty/makeup" },
+            { "text": "Fragrances", "href": "/category/beauty/fragrances" }
+          ]
+        },
+        {
+          "links": [
+            { "text": "Sports & Outdoors", "href": "/category/sports" },
+            { "text": "Fitness Equipment", "href": "/category/sports/fitness" },
+            { "text": "Outdoor Gear", "href": "/category/sports/outdoor" },
+            { "text": "Sportswear", "href": "/category/sports/wear" }
+          ]
+        },
+        {
+          "links": [
+            { "text": "Toys & Kids", "href": "/category/toys" },
+            { "text": "Toys", "href": "/category/toys/all" },
+            { "text": "Kids Clothing", "href": "/category/toys/clothing" },
+            { "text": "Baby Care", "href": "/category/toys/baby-care" }
+          ]
+        },
+        {
+          "links": [
+            { "text": "Grocery", "href": "/category/grocery" },
+            {
+              "text": "Snacks & Beverages",
+              "href": "/category/grocery/snacks-beverages"
+            },
+            { "text": "Staples", "href": "/category/grocery/staples" },
+            {
+              "text": "Personal Care",
+              "href": "/category/grocery/personal-care"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "About": [
+        {
+          "links": [
+            { "text": "About Us", "href": "/about" },
+            { "text": "Contact Us", "href": "/contact" }
+          ]
+        }
+      ]
+    }
+  ]
+}
