@@ -6,12 +6,15 @@ import { IoBagHandleOutline } from "react-icons/io5";
 import { CiSearch } from "react-icons/ci";
 import { IoCloseOutline } from "react-icons/io5";
 import { MdSupportAgent } from "react-icons/md";
+import { AiOutlineHome } from "react-icons/ai";
+import { RxDashboard } from "react-icons/rx";
+import { FaRegUser } from "react-icons/fa";
 
 import Link from "next/link";
 const Navbar = () => {
   return (
     <>
-      <nav className="relative">
+      <nav className="relative w-full">
         <div className="navbar-container flex justify-between items-center gap-10">
           <div className="flex gap-6 xl:gap-8 w-full">
             <div className="logo flex items-center gap-1 cursor-pointer">
@@ -45,21 +48,22 @@ const Navbar = () => {
           </div>
 
           <div className="nav-links-2 flex items-center gap-6 xl:gap-8">
-            <div className="nav-link flex items-center gap-2 cursor-pointer">
+            <div className="nav-link hidden lg:flex items-center gap-2 cursor-pointer">
               <span className="nav-icon">
                 <LuCircleUserRound />
               </span>
               <span className="nav-txt">Login</span>
             </div>
 
-            <div className="nav-link flex  items-center gap-1.5 cursor-pointer">
-              <span className="nav-icon">
+            <div className="nav-link hidden lg:flex items-center gap-1.5 cursor-pointer">
+              <span className="nav-icon relative">
                 <IoBagHandleOutline />
+                <span className="cart-count">2</span>
               </span>
               <span className="nav-txt">Cart</span>
             </div>
 
-            <div className="nav-link flex  items-center gap-1.5 cursor-pointer">
+            <div className="nav-link hidden lg:flex items-center gap-1.5 cursor-pointer">
               <span className="nav-icon">
                 <MdSupportAgent />
               </span>
@@ -75,6 +79,39 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
+
+      <div className="fixed-navbar-mobile py-2 fixed bottom-0 left-0 block lg:hidden w-full">
+        <div className="grid grid-cols-4 justify-items-center">
+          <div className="flex flex-col gap-0.5 items-center">
+            <span className="fixed-nav-icon">
+              <AiOutlineHome />
+            </span>
+            <span className="fixed-nav-txt">Home</span>
+          </div>
+
+          <div className="flex flex-col gap-0.5 items-center">
+            <span className="fixed-nav-icon">
+              <RxDashboard />
+            </span>
+            <span className="fixed-nav-txt">Category</span>
+          </div>
+
+          <div className="flex flex-col gap-0.5 items-center">
+            <span className="fixed-nav-icon">
+              <FaRegUser />
+            </span>
+            <span className="fixed-nav-txt">User</span>
+          </div>
+
+          <div className="flex flex-col gap-0.5 items-center">
+            <span className="fixed-nav-icon relative">
+              <IoBagHandleOutline />
+              <span className="cart-count">2</span>
+            </span>
+            <span className="fixed-nav-txt">Cart</span>
+          </div>
+        </div>
+      </div>
     </>
   );
 };

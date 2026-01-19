@@ -1,9 +1,7 @@
-import { Poppins } from "next/font/google"
+import { Poppins } from "next/font/google";
 import Navbar from "@/components/Navbar/Navbar";
 import "./globals.css";
 import LenisProvider from "@/components/LenisProvider";
-
-
 
 export const metadata = {
   title: "BuyCart | Shop Smarter, Buy Faster",
@@ -16,21 +14,20 @@ export const metadata = {
   },
 };
 
-
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   variable: "--Poppins",
 });
 
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={poppins.variable}>
-      <body className={""}>
+      <body>
         <LenisProvider>
           <Navbar></Navbar>
-          {children}</LenisProvider>
+          {children}
+        </LenisProvider>
       </body>
     </html>
   );
