@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { LuCircleUserRound } from "react-icons/lu";
 import { BsShop } from "react-icons/bs";
@@ -10,9 +12,29 @@ import { AiOutlineHome } from "react-icons/ai";
 import { RxDashboard } from "react-icons/rx";
 import { FaRegUser } from "react-icons/fa";
 import { LuSearch } from "react-icons/lu";
-
 import Link from "next/link";
+
 const Navbar = () => {
+  const [showDropList, setShowDropList] = useState(false);
+  const [showClear, setshowClear] = useState(false);
+  const [search, setSearch] = useState("");
+  const inputRef = useRef(null);
+  const searchBarRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        searchBarRef.current &&
+        !searchBarRef.current.contains(event.target)
+      ) {
+        setShowDropList(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   return (
     <>
       <nav className="relative w-full">
@@ -30,101 +52,121 @@ const Navbar = () => {
                     alt="logo"
                   />
                 </div>
-                {/* <h1 className="logo-txt">Buycart</h1> */}
               </Link>
             </div>
 
-            <div className="nav-search">
+            <div className="nav-search" ref={searchBarRef}>
               <input
+                ref={inputRef}
                 type="text"
+                value={search}
                 placeholder="Search for Products, Brands and More"
+                onClick={() => setShowDropList(true)}
+                onFocus={() => setShowDropList(true)}
+                onChange={(e) => {
+                  const value = e.target.value;
+                  setSearch(value);
+                }}
               />
+
               <span className="search">
                 <LuSearch />
               </span>
-              <span className="close">
-                <IoCloseOutline />
-              </span>
 
-              <div className="search-content absolute top-full left-0 w-full px-2 py-3 bg-white shadow rounded">
-                <div className="">
-                  <p className="font-semibold text-base text-[#554949]">
-                    Treding
-                  </p>
+              {search && (
+                <span
+                  className="close cursor-pointer"
+                  onClick={() => {
+                    setSearch("");
+                    setShowDropList(false);
+                    inputRef.current?.focus();
+                  }}
+                >
+                  <IoCloseOutline />
+                </span>
+              )}
 
-                  <div className="flex flex-col gap-2 mt-1.5 ml-0.5">
-                    <Link
-                      href={"/mobiles"}
-                      className="flex items-center gap-2 hover:bg-sky-50 text-[#554949] duration-150 transition-all rounded px-1 py-2"
-                    >
-                      <span>
-                        <LuSearch />
-                      </span>
-                      <span>mobile</span>
-                    </Link>
+              {showDropList && (
+                <div className="search-content absolute top-full left-0 w-full px-2 py-3 bg-white shadow rounded">
+                  <div className="">
+                    <p className="font-semibold text-base text-[#554949]">
+                      Treding
+                    </p>
 
-                    <Link
-                      href={"/shoes"}
-                      className="flex items-center gap-2 hover:bg-sky-50 text-[#554949] duration-150 transition-all rounded px-1 py-2"
-                    >
-                      <span>
-                        <LuSearch />
-                      </span>
-                      <span>shoes</span>
-                    </Link>
+                    <div className="flex flex-col gap-2 mt-1.5 ml-0.5">
+                      <Link
+                        href={"/mobiles"}
+                        className="flex items-center gap-2 hover:bg-sky-50 text-[#554949] duration-150 transition-all rounded px-1 py-2"
+                      >
+                        <span>
+                          <LuSearch />
+                        </span>
+                        <span>mobile</span>
+                      </Link>
 
-                    <Link
-                      href={"/tshirt"}
-                      className="flex items-center gap-2 hover:bg-sky-50 text-[#554949] duration-150 transition-all rounded px-1 py-2"
-                    >
-                      <span>
-                        <LuSearch />
-                      </span>
-                      <span>t shirt</span>
-                    </Link>
+                      <Link
+                        href={"/shoes"}
+                        className="flex items-center gap-2 hover:bg-sky-50 text-[#554949] duration-150 transition-all rounded px-1 py-2"
+                      >
+                        <span>
+                          <LuSearch />
+                        </span>
+                        <span>shoes</span>
+                      </Link>
 
-                    <Link
-                      href={"/laptops"}
-                      className="flex items-center gap-2 hover:bg-sky-50 text-[#554949] duration-150 transition-all rounded px-1 py-2"
-                    >
-                      <span>
-                        <LuSearch />
-                      </span>
-                      <span>laptops</span>
-                    </Link>
+                      <Link
+                        href={"/tshirt"}
+                        className="flex items-center gap-2 hover:bg-sky-50 text-[#554949] duration-150 transition-all rounded px-1 py-2"
+                      >
+                        <span>
+                          <LuSearch />
+                        </span>
+                        <span>t shirt</span>
+                      </Link>
 
-                    <Link
-                      href={"/watches"}
-                      className="flex items-center gap-2 hover:bg-sky-50 text-[#554949] duration-150 transition-all rounded px-1 py-2"
-                    >
-                      <span>
-                        <LuSearch />
-                      </span>
-                      <span>watches</span>
-                    </Link>
+                      <Link
+                        href={"/laptops"}
+                        className="flex items-center gap-2 hover:bg-sky-50 text-[#554949] duration-150 transition-all rounded px-1 py-2"
+                      >
+                        <span>
+                          <LuSearch />
+                        </span>
+                        <span>laptops</span>
+                      </Link>
 
-                    <Link
-                      href={"/tv"}
-                      className="flex items-center gap-2 hover:bg-sky-50 text-[#554949] duration-150 transition-all rounded px-1 py-2"
-                    >
-                      <span>
-                        <LuSearch />
-                      </span>
-                      <span>tv</span>
-                    </Link>
+                      <Link
+                        href={"/watches"}
+                        className="flex items-center gap-2 hover:bg-sky-50 text-[#554949] duration-150 transition-all rounded px-1 py-2"
+                      >
+                        <span>
+                          <LuSearch />
+                        </span>
+                        <span>watches</span>
+                      </Link>
 
-                    <Link
-                      href={"/sarees"}
-                      className="flex items-center gap-2 hover:bg-sky-50 text-[#554949] duration-150 transition-all rounded px-1 py-2"
-                    >
-                      <span>
-                        <LuSearch />
-                      </span>
-                      <span>sarees</span>
-                    </Link>
+                      <Link
+                        href={"/tv"}
+                        className="flex items-center gap-2 hover:bg-sky-50 text-[#554949] duration-150 transition-all rounded px-1 py-2"
+                      >
+                        <span>
+                          <LuSearch />
+                        </span>
+                        <span>tv</span>
+                      </Link>
+
+                      <Link
+                        href={"/sarees"}
+                        className="flex items-center gap-2 hover:bg-sky-50 text-[#554949] duration-150 transition-all rounded px-1 py-2"
+                      >
+                        <span>
+                          <LuSearch />
+                        </span>
+                        <span>sarees</span>
+                      </Link>
+                    </div>
                   </div>
                 </div>
-              </div>
+              )}
             </div>
           </div>
 
