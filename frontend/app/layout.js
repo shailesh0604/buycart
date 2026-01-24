@@ -2,6 +2,7 @@ import { Poppins } from "next/font/google";
 import Navbar from "@/components/Navbar/Navbar";
 import "./globals.css";
 import LenisProvider from "@/components/LenisProvider";
+import Footer from "@/components/Footer/Footer";
 
 export const metadata = {
   title: "BuyCart | Shop Smarter, Buy Faster",
@@ -27,6 +28,7 @@ export default function RootLayout({ children }) {
         <LenisProvider>
           <Navbar></Navbar>
           {children}
+          <Footer></Footer>
         </LenisProvider>
       </body>
     </html>
