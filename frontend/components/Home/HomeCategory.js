@@ -62,6 +62,7 @@ const HomeCategory = () => {
 
                     {/* Subcategory data */}
                     <div className="dropdown subcategory-dropdown flex flex-col gap-4">
+                      <p>More in {activeSubCat?.title}</p>
                       {activeSubCat?.children.map((child) => (
                         <Link
                           key={child.id}
