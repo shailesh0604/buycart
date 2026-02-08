@@ -3,11 +3,13 @@ import Image from "next/image";
 import HomeCategoryData from "@/app/data/HomeCategoryData";
 import Link from "next/link";
 import { useState } from "react";
+import { IoIosArrowForward } from "react-icons/io";
+import { IoIosArrowDown } from "react-icons/io";
 
 const HomeCategory = () => {
-  const [activeCategory, setActiveCategory] = useState(null);
-  const [activeSubCat, setActiveSubCat] = useState(null);
-  console.log(activeCategory);
+  // const [activeCategory, setActiveCategory] = useState(null);
+  // const [activeSubCat, setActiveSubCat] = useState(null);
+  // console.log(activeCategory);
 
   return (
     <div className="home-category-container">
@@ -37,14 +39,21 @@ const HomeCategory = () => {
                     alt={category.alt}
                   />
                 </div>
-                <div className="cat-txt">{category.title}</div>
+                <div className="cat-txt">
+                  <span>{category.title}</span>
+
+                  {/* {category.subcategorys?.length > 0 && (
+                    <span className="icon">
+                      <IoIosArrowDown />
+                    </span>
+                  )} */}
+                </div>
               </Link>
 
               {/* Dropdown */}
-              {activeCategory?.id === category.id &&
+              {/* {activeCategory?.id === category.id &&
                 category.subcategorys?.length > 0 && (
                   <div className="category-dropdown flex gap-8">
-                    {/* Main categories */}
                     <div className="dropdown flex flex-col gap-4">
                       {category.subcategorys.map((sub) => (
                         <Link
@@ -55,12 +64,16 @@ const HomeCategory = () => {
                           }`}
                           onMouseEnter={() => setActiveSubCat(sub)}
                         >
-                          {sub.title}
+                          <span>{sub.title}</span>
+                          {sub.children?.length > 0 && (
+                            <span className="icon">
+                              <IoIosArrowForward />
+                            </span>
+                          )}
                         </Link>
                       ))}
                     </div>
 
-                    {/* Subcategory data */}
                     <div className="dropdown subcategory-dropdown flex flex-col gap-4">
                       <p>More in {activeSubCat?.title}</p>
                       {activeSubCat?.children.map((child) => (
@@ -74,7 +87,7 @@ const HomeCategory = () => {
                       ))}
                     </div>
                   </div>
-                )}
+                )} */}
             </div>
           </div>
         ))}

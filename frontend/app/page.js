@@ -1,10 +1,14 @@
 "use client"
 import React from 'react'
-import HomeCategory from '@/components/Home/HomeCategory'
+import HomeCategory from '@/components/Home/HomeCategory';
+import TopDeals from '@/components/TopDeals';
 const HomePage = () => {
-  return <>
-    <HomeCategory />
-  </>
+  return (
+    <>
+      <HomeCategory />
+      <TopDeals  />
+    </>
+  );
 
 }
 
