@@ -1,6 +1,6 @@
 import React from "react";
 import TopDealsData from "@/app/data/TopDealsData";
-import HorizontalSlider from "./HorizontalSlider";
+import HorizontalSlider from "../HorizontalSlider";
 
 const TopDeals = () => {
   return (
