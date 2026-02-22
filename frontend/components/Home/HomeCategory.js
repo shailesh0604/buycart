@@ -18,14 +18,14 @@ const HomeCategory = () => {
           <div
             className="category-slider"
             key={category.id}
-            onMouseEnter={() => {
-              setActiveCategory(category);
-              setActiveSubCat(category.subcategorys?.[0] || null);
-            }}
-            onMouseLeave={() => {
-              setActiveCategory(null);
-              setActiveSubCat(null);
-            }}
+            // onMouseEnter={() => {
+            //   setActiveCategory(category);
+            //   setActiveSubCat(category.subcategorys?.[0] || null);
+            // }}
+            // onMouseLeave={() => {
+            //   setActiveCategory(null);
+            //   setActiveSubCat(null);
+            // }}
           >
             <div className="category-item">
               <Link href={category.link} className="home-category">

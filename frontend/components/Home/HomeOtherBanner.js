@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import Image from 'next/image';
 import { useState, useRef } from 'react';
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
@@ -9,7 +9,9 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/autoplay';
-const HomeBanner = () => {
+
+const HomeOtherBanner = () => {
+
     const autoplayDelay = 5000;
 
     const swiperBreakpoints = {
@@ -25,7 +27,7 @@ const HomeBanner = () => {
         },
         // when window width is >= 1024px
         1024: {
-            slidesPerView: 2,
+            slidesPerView: 1,
             spaceBetween: 30,
         },
     };
@@ -51,37 +53,15 @@ const HomeBanner = () => {
                         >
                             <SwiperSlide>
                                 <div className="banner-img">
-                                    <Image src={"/assets/images/banners/b1.webp"} width={0} height={0} sizes='100%' alt='banner img' />
+                                    <Image src={"/assets/images/other-banners/web1.webp"} className='hidden lg:block' width={0} height={0} sizes='100%' alt='banner img' />
+                                    <Image src={"/assets/images/other-banners/mob1.webp"} className='block lg:hidden' width={0} height={0} sizes='100%' alt='banner img' />
                                 </div>
                             </SwiperSlide>
 
                             <SwiperSlide>
                                 <div className="banner-img">
-                                    <Image src={"/assets/images/banners/b2.webp"} width={0} height={0} sizes='100%' alt='banner img' />
-                                </div>
-                            </SwiperSlide>
-
-                            <SwiperSlide>
-                                <div className="banner-img">
-                                    <Image src={"/assets/images/banners/b3.webp"} width={0} height={0} sizes='100%' alt='banner img' />
-                                </div>
-                            </SwiperSlide>
-
-                            <SwiperSlide>
-                                <div className="banner-img">
-                                    <Image src={"/assets/images/banners/b4.webp"} width={0} height={0} sizes='100%' alt='banner img' />
-                                </div>
-                            </SwiperSlide>
-
-                            <SwiperSlide>
-                                <div className="banner-img">
-                                    <Image src={"/assets/images/banners/b5.webp"} width={0} height={0} sizes='100%' alt='banner img' />
-                                </div>
-                            </SwiperSlide>
-
-                            <SwiperSlide>
-                                <div className="banner-img">
-                                    <Image src={"/assets/images/banners/b6.webp"} width={0} height={0} sizes='100%' alt='banner img' />
+                                    <Image src={"/assets/images/other-banners/web2.webp"} className='hidden lg:block' width={0} height={0} sizes='100%' alt='banner img' />
+                                    <Image src={"/assets/images/other-banners/mob2.webp"} className='block lg:hidden' width={0} height={0} sizes='100%' alt='banner img' />
                                 </div>
                             </SwiperSlide>
                         </Swiper>
@@ -92,4 +72,4 @@ const HomeBanner = () => {
     )
 }
 
-export default HomeBanner
+export default HomeOtherBanner

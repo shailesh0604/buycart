@@ -10,7 +10,7 @@ const TopDeals = () => {
           <HorizontalSlider
             title="Top Deals"
             data={TopDealsData}
-            scrollAmount={320}
+            scrollAmount={350}
           />
         </div>
       </section>

@@ -174,6 +174,7 @@ body {
   box-shadow:
     rgba(0, 0, 0, 0.1) 0px 0px 5px 0px,
     rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  background-color: var(--light);
 }
 
 .fixed-nav-icon svg {
@@ -331,7 +332,7 @@ body {
 }
 
 .horizontal-title {
-  font-size: 1.175rem;
+  font-size: 1.5rem;
   font-weight: 600;
   color: var(--dark);
   margin: 0 0 0 0.5rem;
@@ -416,6 +417,77 @@ body {
   object-fit: cover;
 }
 
+.banner-swiper-container .swiper-pagination {
+  position: relative;
+  margin: 1rem 0 0 0;
+  transition: all 0.5s ease;
+}
+
+.banner-swiper-container .swiper-pagination .swiper-pagination-bullet {
+  width: 1rem;
+  height: 4px;
+  background-color: var(--border-color);
+  border-radius: var(--radius-full);
+  transition: all 1.5s ease;
+  margin: 0 3px !important;
+  opacity: 1;
+}
+
+.banner-swiper-container .swiper-pagination .swiper-pagination-bullet-active {
+  width: 2rem;
+  background-color: var(--orange-1);
+  transition: all 1.5s ease;
+}
+
+.footer-container {
+  width: 95%;
+  max-width: 100%;
+  margin: auto;
+}
+
+.footer-logo-info {
+  width: 30rem;
+  max-width: 100%;
+}
+
+.footer-logo {
+  width: 12vw;
+  margin: 0 0 1rem 0;
+  transition: all 0.5s ease;
+}
+
+.footer-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.footer-links .footer-link-title {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--light);
+  margin: 0 0 1rem 0;
+  transition: all 0.5s ease;
+}
+
+.footer-links .footer-link {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--light);
+  transition: all 0.5s ease;
+  opacity: 0.6;
+}
+
+.footer-links .footer-link:hover {
+  transition: all 0.5s ease;
+  opacity: 1;
+}
+
+.footer-info {
+  color: var(--light);
+  text-wrap: balance;
+}
+
 @media screen and (max-width: 1400px) {
   .navbar-container {
     transition: all 0.5s ease;
@@ -462,6 +534,16 @@ body {
   .custom-container {
     width: 90%;
   }
+
+  .footer-logo-info {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .footer-logo {
+    width: 18vw;
+    transition: all 0.5s ease;
+  }
 }
 
 @media screen and (max-width: 1080px) {
@@ -490,6 +572,11 @@ body {
     width: 10rem;
     max-width: 90%;
     transition: all 0.5s;
+  }
+
+  .footer-logo {
+    width: 25vw;
+    transition: all 0.5s ease;
   }
 }
 
@@ -548,5 +635,10 @@ body {
   .horizontal-slide .horizontal-slide-price {
     font-size: 0.95rem;
     transition: all 0.5s;
+  }
+
+  .footer-logo {
+    width: 40vw;
+    transition: all 0.5s ease;
   }
 }
