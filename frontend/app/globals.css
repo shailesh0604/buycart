@@ -333,6 +333,7 @@ body {
 
 .horizontal-title {
   font-size: 1.5rem;
+  transition: all 0.5s ease;
   font-weight: 600;
   color: var(--dark);
   margin: 0 0 0 0.5rem;
@@ -437,6 +438,40 @@ body {
   width: 2rem;
   background-color: var(--orange-1);
   transition: all 1.5s ease;
+}
+
+.section-heading .section-title {
+  color: var(--dark);
+  margin: 0 0 0 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  transition: all 0.5s ease;
+}
+
+section.section-shop-by-category {
+  padding: 3rem 0;
+}
+
+.shop-by-category-contents {
+  margin: 1.5rem 0 0 0;
+}
+
+.shop-by-category-content {
+  padding: 1rem;
+  box-shadow: var(--shadow-1);
+  transition: all 0.5s ease;
+  border-radius: var(--radius-1);
+}
+
+.shop-cat-img {
+  width: 100%;
+  height: 30dvh;
+}
+
+.shop-cat-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .footer-container {
