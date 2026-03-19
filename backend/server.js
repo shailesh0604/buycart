@@ -1,15 +1,29 @@
 const express = require("express");
+const dotenv = require("dotenv");
+const cors = require("cors")
 const app = express();
-const port = 4000;
-const connectDb = require("./src/config/database")
+const connectDb = require("./src/config/database");
+const authRoutes = require("./src/routes/authRoutes")
+const errorHandler = require("./src/middleware/errorHandler");
+const PORT = process.env.PORT || 4000;
+
+dotenv.config();
+connectDb();
+
+app.use(cors({ origin: 'http://localhost:3000' }));
+app.use(express.json());
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
-connectDb();
+//routes
+app.use('/api/auth', authRoutes);
+
+// Error handler (must be last)
+app.use(errorHandler);
 
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+app.listen(PORT, () => {
+  console.log(`Example app listening on port ${PORT}`);
 });
