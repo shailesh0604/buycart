@@ -1,56 +1,52 @@
-import React from 'react'
-
 const ShopByCategoryData = [
     {
         id: 1,
-        title: "Ultra HD Gaming Monitor",
-        image: "/assets/images/top-deals/monitor.webp",
+        title: "Fashion",
+        image: "/assets/images/shop-by-category/fashion.jpg",
         link: "/product/ultra-hd-gaming-monitor",
     },
     {
         id: 2,
-        title: "Lightweight Performance Laptop",
-        image: "/assets/images/top-deals/monitor.webp",
+        title: "Health & Personal care",
+        image: "/assets/images/shop-by-category/personal.jpg",
         link: "/product/performance-laptop",
     },
     {
         id: 3,
-        title: "4K Mirrorless Camera",
-        image: "/assets/images/top-deals/monitor.webp",
+        title: "Electronic Applicance",
+        image: "/assets/images/shop-by-category/electronic.avif",
         link: "/product/4k-mirrorless-camera",
     },
     {
         id: 4,
-        title: "Fitness Smartwatch",
-        image: "/assets/images/top-deals/monitor.webp",
+        title: "Groceries",
+        image: "/assets/images/shop-by-category/grocery.jpg",
         link: "/product/fitness-smartwatch",
     },
     {
         id: 5,
-        title: "True Wireless Earbuds Pro",
-        image: "/assets/images/top-deals/monitor.webp",
+        title: "Kitchen Applicance",
+        image: "/assets/images/shop-by-category/kitchen-appliance.webp",
         link: "/product/tws-earbuds-pro",
     },
     {
         id: 6,
-        title: "Full HD Home Projector",
-        image: "/assets/images/top-deals/monitor.webp",
+        title: "Toys & Games",
+        image: "/assets/images/shop-by-category/Gifts-Toys.webp",
         link: "/product/full-hd-projector",
     },
     {
         id: 7,
-        title: "Portable Bluetooth Speaker",
-        image: "/assets/images/top-deals/monitor.webp",
+        title: "Baby Care",
+        image: "/assets/images/shop-by-category/baby-care.avif",
         link: "/product/portable-bluetooth-speaker",
     },
     {
         id: 8,
-        title: "Wireless All-in-One Printer",
-        image: "/assets/images/top-deals/monitor.webp",
+        title: "Furniture",
+        image: "/assets/images/shop-by-category/furniture.webp",
         link: "/product/wireless-printer",
     },
-]
+];
 
-export default ShopByCategoryData
-
-
+export default ShopByCategoryData;
