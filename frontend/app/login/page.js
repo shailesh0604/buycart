@@ -1,8 +1,50 @@
-import React from 'react'
+"use client";
+import React, { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
+import Link from 'next/link';
+import axios from 'axios';
+
+const API = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000/api';
+
+
+const STEP = {
+    EMAIL: 'email',
+    OTP: 'otp',
+    PASSWORD: 'password',
+    DONE: 'done',
+};
+
+
 const Login = () => {
+    // defining first step
+    const [step, setStep] = useState(STEP.EMAIL);
+    const [email, setEmail] = useState("");
+    const [digit, setDigit] = useState(['', '', '', '', '', '']);
+    const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
+    const [loading, setLoading] = useState(false);
+    const [message, setMessage] = useState(null);
+    const [cooldown, setCooldown] = useState(0);
+    const inputsRef = useRef([]);
+    const timerRef = useRef(null);
+
+    // Cooldown countdown
+    useEffect(() => {
+        if (cooldown <= 0) return;
+        timerRef.current = setInterval(() => {
+            setCooldown((c) => {
+                if (c <= 1) { clearInterval(timerRef.current); return 0; }
+                return c - 1;
+            });
+        }, 1000);
+        return () => clearInterval(timerRef.current);
+    }, [cooldown]);
+
+    const showMsg = (type, text) => setMessage({ type, text });
+    const clearMsg = () => setMessage(null);
+
     return (
         <>
             <section className='section-login'>
@@ -10,7 +52,7 @@ const Login = () => {
                 <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
                     <div className="sm:mx-auto sm:w-full sm:max-w-sm">
                         <Image
-                            alt="Your Company" width={0} height={0}
+                            alt="buycart logo " width={0} height={0}
                             src="/assets/images/logo/logo.png" sizes='100%'
                             className="mx-auto h-10 w-auto"
                         />
@@ -29,14 +71,34 @@ const Login = () => {
                                         name="email"
                                         type="email"
                                         required
+                                        inputMode='email'
                                         placeholder='Enter email address'
                                         autoComplete="email"
-                                        className="block w-full rounded-md bg-white/5 px-3 py-2.5 text-base text-white outline-1 -outline-offset-1 outline-black/20 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-orange-500 sm:text-sm/6"
+                                        className="block w-full rounded-md bg-white/5 px-3 py-2.5 text-base text-black outline-1 -outline-offset-1 outline-black/20 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-orange-500 sm:text-sm/6"
                                     />
                                 </div>
                             </div>
 
-                            <div>
+                            {/* <div>
+                                <label htmlFor="email" className="block text-sm/6 font-medium text-black">
+                                    Enter OTP
+                                </label>
+                                <div className="mt-2">
+                                    <input
+                                        id="opt"
+                                        name="opt"
+                                        type="text"
+                                        required
+                                        maxLength={"6"}
+                                        inputMode='numeric'
+                                        placeholder='Enter 6 digit OTP'
+                                        autoComplete="email"
+                                        className="block w-full rounded-md bg-white/5 px-3 py-2.5 text-base text-black outline-1 -outline-offset-1 outline-black/20 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-orange-500 sm:text-sm/6"
+                                    />
+                                </div>
+                            </div> */}
+
+                            {/* <div>
                                 <div className="flex items-center justify-between">
                                     <label htmlFor="password" className="block text-sm/6 font-medium text-black">
                                         Password
@@ -55,15 +117,15 @@ const Login = () => {
                                         placeholder='Enter password'
                                         required
                                         autoComplete="current-password"
-                                        className="block w-full rounded-md bg-white/5 px-3 py-2.5 text-base text-white outline-1 -outline-offset-1 outline-black/20 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-orange-500 sm:text-sm/6"
+                                        className="block w-full rounded-md bg-white/5 px-3 py-2.5 text-base text-black outline-1 -outline-offset-1 outline-black/20 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-orange-500 sm:text-sm/6"
                                     />
                                 </div>
-                            </div>
+                            </div> */}
 
                             <div>
                                 <button
                                     type="submit"
-                                    className="flex w-full justify-center rounded-md bg-orange-500 px-3 py-3 text-sm/6 font-semibold text-white hover:bg-orange-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
+                                    className="flex w-full justify-center cursor-pointer rounded-md bg-orange-500 px-3 py-3 text-sm/6 font-semibold text-white hover:bg-orange-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
                                 >
                                     Sign In
                                 </button>

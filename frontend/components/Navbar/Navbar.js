@@ -87,7 +87,7 @@ const Navbar = () => {
               )}
 
               {showDropList && (
-                <div className="search-content absolute top-full left-0 w-full px-2 py-3 bg-white shadow rounded">
+                <div className="search-content absolute top-full left-0 w-full px-2 py-3 bg-white shadow rounded z-10 shadow-2xl">
                   <div className="">
                     <p className="font-semibold text-base text-[#554949]">
                       Treding
@@ -171,68 +171,68 @@ const Navbar = () => {
           </div>
 
           <div className="nav-links-2 flex items-center gap-6 xl:gap-8">
-            <div className="nav-link hidden lg:flex items-center gap-2 cursor-pointer">
+            <Link className="nav-link hidden lg:flex items-center gap-2 cursor-pointer" href={"/login"}>
               <span className="nav-icon">
                 <LuCircleUserRound />
               </span>
               <span className="nav-txt">Login</span>
-            </div>
+            </Link>
 
-            <div className="nav-link hidden lg:flex items-center gap-1.5 cursor-pointer">
+            <Link className="nav-link hidden lg:flex items-center gap-1.5 cursor-pointer" href={"/cart"}>
               <span className="nav-icon relative">
                 <IoBagHandleOutline />
                 <span className="cart-count">2</span>
               </span>
               <span className="nav-txt">Cart</span>
-            </div>
+            </Link>
 
-            <div className="nav-link hidden lg:flex items-center gap-1.5 cursor-pointer">
+            <Link className="nav-link hidden lg:flex items-center gap-1.5 cursor-pointer" href={"/help-center"}>
               <span className="nav-icon">
                 <MdSupportAgent />
               </span>
               <span className="nav-txt">Help Center</span>
-            </div>
+            </Link>
 
-            <div className="nav-link flex items-center gap-2 cursor-pointer">
+            <Link className="nav-link flex items-center gap-2 cursor-pointer" href={"/become-seller"}>
               <span className="nav-icon">
                 <BsShop />
               </span>
               <span className="nav-txt">Become a Seller</span>
-            </div>
+            </Link>
           </div>
         </div>
       </nav>
 
       <div className="fixed-navbar-mobile py-2 fixed bottom-0 left-0 block lg:hidden w-full">
         <div className="grid grid-cols-4 justify-items-center">
-          <div className="flex flex-col gap-0.5 items-center">
+          <Link className="flex flex-col gap-0.5 items-center" href={"/"}>
             <span className="fixed-nav-icon">
               <AiOutlineHome />
             </span>
             <span className="fixed-nav-txt">Home</span>
-          </div>
+          </Link>
 
-          <div className="flex flex-col gap-0.5 items-center">
+          <Link className="flex flex-col gap-0.5 items-center" href={"/category"}>
             <span className="fixed-nav-icon">
               <RxDashboard />
             </span>
             <span className="fixed-nav-txt">Category</span>
-          </div>
+          </Link>
 
-          <div className="flex flex-col gap-0.5 items-center">
+          <Link className="flex flex-col gap-0.5 items-center" href={"/user"}>
             <span className="fixed-nav-icon">
               <FaRegUser />
             </span>
             <span className="fixed-nav-txt">User</span>
-          </div>
+          </Link>
 
-          <div className="flex flex-col gap-0.5 items-center">
+          <Link className="flex flex-col gap-0.5 items-center" href={"/cart"}>
             <span className="fixed-nav-icon relative">
               <IoBagHandleOutline />
               <span className="cart-count">2</span>
             </span>
             <span className="fixed-nav-txt">Cart</span>
-          </div>
+          </Link>
         </div>
       </div>
     </>
