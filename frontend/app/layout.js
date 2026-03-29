@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar/Navbar";
 import "./globals.css";
 import LenisProvider from "@/components/LenisProvider";
 import Footer from "@/components/Footer/Footer";
+import { AuthProvider } from "./context/AuthContext";
 
 export const metadata = {
   title: "BuyCart | Shop Smarter, Buy Faster",
@@ -25,11 +26,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={poppins.variable}>
       <body>
-        <LenisProvider>
-          <Navbar></Navbar>
-          {children}
-          <Footer></Footer>
-        </LenisProvider>
+        <AuthProvider>
+          <LenisProvider>
+            <Navbar />
+            {children}
+            <Footer />
+          </LenisProvider>
+        </AuthProvider>
       </body>
     </html>
   );

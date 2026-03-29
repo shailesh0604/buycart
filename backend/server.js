@@ -6,6 +6,12 @@ const connectDb = require("./src/config/database");
 const authRoutes = require("./src/routes/authRoutes")
 const errorHandler = require("./src/middleware/errorHandler");
 const PORT = process.env.PORT || 4000;
+const helmet = require("helmet");
+const cookieParser = require("cookie-parser");
+
+// Middleware
+app.use(helmet());
+app.use(cookieParser());
 
 dotenv.config();
 connectDb();
@@ -13,9 +19,8 @@ connectDb();
 app.use(cors({ origin: process.env.CLIENT_URL, credentials: true }));
 app.use(express.json());
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
+// normally get request
+app.get("/", (req, res) => res.send("API running ✅"));
 
 //routes
 app.use('/api/auth', authRoutes);
