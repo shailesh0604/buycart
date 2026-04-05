@@ -52,7 +52,7 @@ const logoutUser = (req, res) => {
         secure: process.env.NODE_ENV === "production",
         sameSite: "strict",
     });
-    res.status(200).json({ message: "Logged out successfully." });
+    return res.status(200).json({ message: "Logged out successfully." });
 };
 
 
@@ -60,7 +60,7 @@ const logoutUser = (req, res) => {
 // Frontend calls this on load to restore session
 const getMe = async (req, res) => {
     // req.user is set by the protect middleware
-    res.status(200).json({ user: req.user });
+    return res.status(200).json({ user: req.user });
 };
 
 //register user logic
@@ -279,6 +279,8 @@ const completeRegister = async (req, res) => {
         user.otp = { code: null, expiresAt: null, attempts: 0, verified: false }; // clear OTP
         await user.save();
 
+        const token = generateToken(user._id);
+
         // ✅ Set JWT in httpOnly cookie — JS cannot read this
         res.cookie("token", token, COOKIE_OPTIONS);
 
@@ -292,5 +294,7 @@ const completeRegister = async (req, res) => {
         res.status(500).json({ message: "Server error", error: error.message });
     }
 };
+
+
 
 module.exports = { loginUser, logoutUser, registerUser, sendOTP, verifyOTP, completeRegister, getMe };

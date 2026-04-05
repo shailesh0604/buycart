@@ -5,6 +5,7 @@ import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import Link from 'next/link';
 import axios from 'axios';
+import { signIn } from "next-auth/react";
 
 const API = process.env.API_BASE_URL || 'http://localhost:4000/api';
 
@@ -361,18 +362,18 @@ const Login = () => {
                         </div>
 
                         <div className="flex gap-4">
-                            <a className='flex items-center justify-center py-3 rounded gap-2.5 w-full outline-1 outline-gray-200'>
+                            <Link href={""} className='flex items-center justify-center py-3 rounded gap-2.5 w-full outline-1 outline-gray-200' onClick={() => signIn("google", { callbackUrl: "/" })}>
                                 <span>
                                     <FcGoogle />
                                 </span>
-                                <span>Google</span>
-                            </a>
-                            <a className='flex items-center justify-center py-3 rounded gap-2.5 w-full outline-1 outline-gray-200'>
+                                <span>Sign in with Google</span>
+                            </Link>
+                            {/* <a className='flex items-center justify-center py-3 rounded gap-2.5 w-full outline-1 outline-gray-200'>
                                 <span>
                                     <FaGithub />
                                 </span>
                                 <span>Github</span>
-                            </a>
+                            </a> */}
                         </div>
                     </div>
                 </div>

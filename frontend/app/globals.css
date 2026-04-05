@@ -322,6 +322,13 @@ body {
   transition: all 0.25s ease;
 }
 
+.custom-container-2 {
+  width: 90%;
+  max-width: 100%;
+  margin: auto;
+  transition: all 0.25s ease;
+}
+
 .horizontal-slider {
   display: flex;
   gap: 1.5rem;
@@ -591,6 +598,12 @@ section.section-shop-by-category {
 
   .custom-container {
     width: 90%;
+  }
+
+  .custom-container-2 {
+    width: 95%;
+    max-width: 100%;
+    transition: all 0.25s ease;
   }
 
   .footer-logo-info {

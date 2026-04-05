@@ -18,7 +18,7 @@ connectDb();
 
 app.use(cors({ origin: process.env.CLIENT_URL, credentials: true }));
 app.use(express.json());
-
+console.log("ruuning");
 // normally get request
 app.get("/", (req, res) => res.send("API running ✅"));
 
